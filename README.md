@@ -48,12 +48,12 @@
 ## 📸 Screenshots
 
 <!-- اگه عکس داری اینجا اضافه کن -->
-<!-- 
+
 ![Aurora Theme](screenshots/aurora.png)
 ![Coder Theme](screenshots/code.png)
 ![pink Theme](screenshots/pink.png)
 ![green-w Theme](screenshots/green-w.png)
--->
+
 
 ---
 
