@@ -1,0 +1,1721 @@
+
+
+@font-face {
+  font-family: "Nothing";
+  src: url("fonts/SHUTTLE-X.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chekhovskoy";
+  src: url("fonts/Chekhovskoy.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "chatime";
+  src: url("fonts/chatime.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "folk";
+  src: url("fonts/folk.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("fonts/SpaceGrotesk-Variable.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SEAWAVE";
+  src: url("fonts/NTSEAWAVE.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   ROOT VARIABLES
+   ========================================================= */
+
+:root {
+  --ui-font:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+
+  --bg: #2c2f35;
+  --clock-color: rgba(255, 255, 255, 0.42);
+  --text: rgba(255, 255, 255, 0.7);
+  --muted: rgba(255, 255, 255, 0.3);
+  --border: rgba(255, 255, 255, 0.1);
+
+  --clock-font: "Inter";
+  --clock-weight: 200;
+  --clock-letter: 2px;
+  --clock-shadow: none;
+
+  --shadow: 0 18px 65px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================================================
+   THEME: NOIR ART (Paris)
+   ========================================================= */
+
+[data-theme="noir_art"] {
+  --bg:
+    radial-gradient(1400px 1000px at 50% 20%, rgba(255, 255, 255, 0.06), transparent 58%),
+    radial-gradient(900px 700px at 15% 18%, rgba(110, 231, 255, 0.08), transparent 60%),
+    radial-gradient(1000px 800px at 85% 22%, rgba(168, 85, 247, 0.07), transparent 62%),
+    radial-gradient(1200px 900px at 50% 120%, rgba(255, 140, 70, 0.045), transparent 68%),
+    linear-gradient(180deg, #0d0d12 0%, #09090d 45%, #050507 100%);
+
+  --clock-color: rgba(255, 255, 255, 0.92);
+  --text: rgba(240, 242, 245, 0.72);
+  --muted: rgba(240, 242, 245, 0.34);
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --clock-font: "Inter";
+  --clock-weight: 180;
+  --clock-letter: 8px;
+
+  --clock-shadow:
+    0 0 1px rgba(255, 255, 255, 0.65), 0 10px 40px rgba(0, 0, 0, 0.75),
+    0 0 40px rgba(110, 231, 255, 0.08), 0 0 70px rgba(168, 85, 247, 0.05);
+
+  --panel-bg: rgba(255, 255, 255, 0.03);
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  --noise-opacity: 0.035;
+}
+
+/* =========================================================
+   THEME: AURORA (Berlin)
+   ========================================================= */
+
+[data-theme="aurora"] {
+  --bg:
+    radial-gradient(1200px 700px at 70% 20%, rgba(99, 102, 241, 0.4), transparent 55%),
+    radial-gradient(900px 600px at 20% 30%, rgba(110, 231, 255, 0.3), transparent 55%),
+    radial-gradient(900px 600px at 50% 90%, rgba(168, 85, 247, 0.25), transparent 58%), #090a10;
+
+  --clock-color: rgba(230, 247, 255, 0.82);
+  --text: rgba(230, 247, 255, 0.7);
+  --muted: rgba(230, 247, 255, 0.35);
+  --border: rgba(230, 247, 255, 0.14);
+
+  --clock-font: "SpaceGrotesk";
+  --clock-weight: 600;
+  --clock-letter: 1px;
+  --clock-shadow: 0 0 22px rgba(110, 231, 255, 0.22);
+}
+
+/* =========================================================
+   THEME: MARKER LIGHT (Helsinki)
+   ========================================================= */
+
+[data-theme="marker"] {
+  --bg:
+    radial-gradient(900px 600px at 50% -10%, rgba(0, 0, 0, 0.035), transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.015) 0px,
+      rgba(0, 0, 0, 0.015) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    #f3f4f6;
+
+  --clock-color: rgba(20, 24, 31, 0.72);
+  --text: rgba(20, 24, 31, 0.6);
+  --muted: rgba(20, 24, 31, 0.32);
+  --border: rgba(20, 24, 31, 0.1);
+
+  --clock-font: "folk";
+  --clock-letter: 1.5px;
+  --clock-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================================
+   THEME: MARKER DARK
+   ========================================================= */
+
+[data-theme="marker_dark"] {
+  --bg:
+    radial-gradient(1000px 600px at 50% -10%, rgba(255, 255, 255, 0.06), transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    #0b0c10;
+
+  --clock-color: rgba(243, 244, 246, 0.86);
+  --text: rgba(243, 244, 246, 0.72);
+  --muted: rgba(243, 244, 246, 0.38);
+  --border: rgba(243, 244, 246, 0.12);
+
+  --clock-font: "folk";
+  --clock-weight: 400;
+  --clock-letter: 1.5px;
+  --clock-shadow: 0 0 0.6px rgba(255, 255, 255, 0.2), 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* Marker clock styles */
+html[data-theme="marker"] .clock,
+html[data-theme="marker_dark"] .clock {
+  font-family: var(--clock-font);
+  letter-spacing: var(--clock-letter);
+  transform: translateY(70px);
+  text-shadow: var(--clock-shadow);
+  position: relative;
+}
+
+html[data-theme="marker"] .clock::after,
+html[data-theme="marker_dark"] .clock::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  color: inherit;
+  filter: blur(0.8px);
+  opacity: 0.25;
+  z-index: -1;
+}
+
+html[data-theme="marker_dark"] .clock {
+  -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="marker"] .quoteText,
+[data-theme="marker_dark"] .quoteText {
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  color: var(--text);
+}
+
+[data-theme="marker"] hr,
+[data-theme="marker_dark"] hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* =========================================================
+   THEME: CYBERPUNK (Tokyo)
+   ========================================================= */
+
+[data-theme="cyberpunk"] {
+  --bg:
+    radial-gradient(1200px 900px at 15% 20%, rgba(0, 255, 255, 0.12), transparent 60%),
+    radial-gradient(1000px 800px at 85% 25%, rgba(255, 0, 170, 0.12), transparent 60%),
+    radial-gradient(900px 700px at 50% 100%, rgba(140, 0, 255, 0.1), transparent 65%),
+    radial-gradient(700px 500px at 50% 50%, rgba(255, 255, 255, 0.025), transparent 70%),
+    linear-gradient(180deg, #07070d 0%, #05050b 45%, #020204 100%);
+
+  --grid-opacity: 0.08;
+  --grid-color: rgba(0, 255, 255, 0.16);
+
+  --clock-color: rgba(170, 255, 255, 0.92);
+  --text: rgba(235, 240, 255, 0.74);
+  --muted: rgba(0, 255, 255, 0.42);
+  --border: rgba(0, 255, 255, 0.14);
+
+  --clock-font: "Nothing", sans-serif;
+  --clock-weight: 700;
+  --clock-letter: 8px;
+
+  --clock-shadow:
+    0 0 10px rgba(0, 255, 255, 0.45), 0 0 24px rgba(0, 255, 255, 0.18),
+    0 0 50px rgba(255, 0, 170, 0.16);
+
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+}
+
+[data-theme="cyberpunk"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.12;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
+}
+
+[data-theme="cyberpunk"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.08;
+  mix-blend-mode: soft-light;
+}
+
+[data-theme="cyberpunk"] .clock {
+  position: relative;
+  color: var(--clock-color);
+  font-family: var(--clock-font);
+  font-weight: var(--clock-weight);
+  letter-spacing: var(--clock-letter);
+  text-transform: uppercase;
+  text-shadow: var(--clock-shadow);
+  filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.3)) drop-shadow(0 0 30px rgba(255, 0, 170, 0.12));
+  animation: cyberPulse 5s ease-in-out infinite;
+}
+
+[data-theme="cyberpunk"] .clock::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: rgba(255, 0, 170, 0.18);
+  transform: translateX(2px);
+  filter: blur(1.5px);
+  z-index: -1;
+}
+
+[data-theme="cyberpunk"] .clock:hover {
+  animation:
+    cyberGlitch 0.18s linear 2,
+    cyberPulse 5s ease-in-out infinite;
+}
+
+@keyframes cyberGlitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 1px);
+  }
+  40% {
+    transform: translate(2px, -1px);
+  }
+  60% {
+    transform: translate(-1px, 0);
+  }
+  80% {
+    transform: translate(1px, 1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes cyberPulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.25))
+      drop-shadow(0 0 26px rgba(255, 0, 170, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.45))
+      drop-shadow(0 0 42px rgba(255, 0, 170, 0.18));
+  }
+}
+
+[data-theme="cyberpunk"] .quoteText {
+  color: rgba(235, 240, 255, 0.72);
+  letter-spacing: 0.6px;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.08);
+}
+
+[data-theme="cyberpunk"] .panel,
+[data-theme="cyberpunk"] .card {
+  background: var(--glass);
+  border: 1px solid rgba(0, 255, 255, 0.12);
+  backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="cyberpunk"] hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.35), transparent);
+}
+
+[data-theme="cyberpunk"] ::selection {
+  background: rgba(255, 0, 170, 0.28);
+  color: white;
+}
+
+html[data-theme="cyberpunk"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--grid-opacity);
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 52px 52px;
+  background-position: 0 0;
+  mix-blend-mode: screen;
+  filter: blur(0.15px);
+}
+
+/* =========================================================
+   THEME: RETRO WAVE (Los Angeles)
+   ========================================================= */
+
+[data-theme="retro_wave"] {
+  --bg:
+    radial-gradient(1200px 800px at 50% 25%, rgba(255, 120, 180, 0.45), transparent 60%),
+    linear-gradient(to bottom, #1a002e 0%, #120021 40%, #0a0015 100%);
+
+  --clock-color: rgba(255, 210, 255, 0.95);
+  --text: rgba(255, 200, 255, 0.75);
+  --muted: rgba(255, 200, 255, 0.45);
+  --border: rgba(255, 120, 200, 0.25);
+
+  --clock-font: "Chekhovskoy";
+  --clock-weight: 700;
+  --clock-letter: 4px;
+  --clock-shadow: 0 0 10px rgba(255, 0, 200, 0.7), 0 0 40px rgba(255, 0, 200, 0.3);
+}
+
+/* =========================================================
+   THEME: DEV (San Francisco)
+   ========================================================= */
+
+[data-theme="dev"] {
+  --bg:
+    radial-gradient(1200px 800px at 15% 15%, rgba(80, 255, 170, 0.1), transparent 60%),
+    radial-gradient(900px 700px at 85% 20%, rgba(0, 180, 255, 0.1), transparent 65%),
+    radial-gradient(700px 500px at 50% 100%, rgba(0, 255, 180, 0.06), transparent 70%),
+    linear-gradient(180deg, #0c1117 0%, #090d12 45%, #05070a 100%);
+
+  --clock-color: rgba(140, 255, 210, 0.96);
+  --text: rgba(225, 235, 255, 0.86);
+  --muted: rgba(140, 190, 210, 0.48);
+  --border: rgba(120, 255, 210, 0.16);
+
+  --clock-font: "IBM Plex Mono", monospace;
+  --clock-weight: 500;
+  --clock-letter: 3px;
+
+  --clock-shadow:
+    0 0 10px rgba(80, 255, 170, 0.3), 0 0 30px rgba(0, 255, 180, 0.1),
+    0 0 60px rgba(0, 180, 255, 0.08);
+
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+}
+
+[data-theme="dev"] .clock {
+  font-family: var(--clock-font), monospace !important;
+  font-weight: var(--clock-weight);
+  letter-spacing: var(--clock-letter);
+  color: var(--clock-color);
+  animation: devGlow 4s ease-in-out infinite;
+  text-shadow:
+    0 0 14px rgba(80, 250, 123, 0.4),
+    0 0 50px rgba(80, 250, 123, 0.2);
+}
+
+@keyframes devGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 12px rgba(80, 250, 123, 0.3),
+      0 0 35px rgba(80, 250, 123, 0.15);
+  }
+  50% {
+    text-shadow:
+      0 0 22px rgba(80, 250, 123, 0.6),
+      0 0 80px rgba(80, 250, 123, 0.35);
+  }
+}
+
+[data-theme="dev"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(80, 250, 123, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(80, 250, 123, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.45;
+  animation: gridMove 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(80px, 80px);
+  }
+}
+
+[data-theme="dev"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 3px,
+    transparent 6px
+  );
+  animation: scanMove 6s linear infinite;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes scanMove {
+  from {
+    transform: translateY(-40px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}
+
+[data-theme="dev"] .panel,
+[data-theme="dev"] .card {
+  background: var(--glass);
+  border: 1px solid rgba(120, 255, 210, 0.1);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dev"] .quoteText {
+  color: rgba(220, 235, 255, 0.78);
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 10px rgba(80, 255, 170, 0.05);
+}
+
+[data-theme="dev"] hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(80, 255, 170, 0.28), transparent);
+}
+
+[data-theme="dev"] ::selection {
+  background: rgba(80, 255, 170, 0.22);
+  color: white;
+}
+
+/* =========================================================
+   THEME: SAGE LIGHT (Rome)
+   ========================================================= */
+
+[data-theme="sage"] {
+  --bg: linear-gradient(180deg, #ddbea9 0%, #ffe8d6 100%);
+
+  --clock-color: #333d29;
+  --text: #333d29;
+  --muted: #6b705c;
+  --border: rgba(51, 61, 41, 0.12);
+
+  --clock-font: "Chekhovskoy";
+  --clock-weight: 400;
+  --clock-letter: -1.5px;
+  --clock-shadow: 0 2px 8px rgba(51, 61, 41, 0.05), 0 10px 30px rgba(51, 61, 41, 0.04);
+}
+
+[data-theme="sage"] .clock {
+  font-family: var(--clock-font), serif !important;
+  font-weight: var(--clock-weight);
+  letter-spacing: var(--clock-letter);
+  color: var(--clock-color);
+  opacity: 0.94;
+  text-shadow: var(--clock-shadow);
+}
+
+/* =========================================================
+   THEME: SAGE DARK
+   ========================================================= */
+
+[data-theme="sage_dark"] {
+  --bg: linear-gradient(180deg, #1a1f16 0%, #0f130d 100%);
+
+  --clock-color: #e6eddc;
+  --text: #e6eddc;
+  --muted: #a3b18a;
+  --border: rgba(230, 237, 220, 0.1);
+
+  --clock-font: "Chekhovskoy";
+  --clock-weight: 400;
+  --clock-letter: -1.5px;
+  --clock-shadow: 0 0 15px rgba(230, 237, 220, 0.05), 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="sage_dark"] .clock {
+  font-family: var(--clock-font), serif !important;
+  font-weight: var(--clock-weight);
+  letter-spacing: var(--clock-letter);
+  color: var(--clock-color);
+  opacity: 0.95;
+  text-shadow: var(--clock-shadow);
+}
+
+/* =========================================================
+   THEME: ROYAL (London)
+   ========================================================= */
+
+[data-theme="royal"] {
+  --bg:
+    radial-gradient(1200px 800px at 50% -20%, rgba(255, 215, 150, 0.08), transparent 60%),
+    linear-gradient(180deg, #0e0e0e 0%, #050505 60%, #000000 100%);
+
+  --clock-color: #d4af37;
+  --text: rgba(230, 210, 150, 0.85);
+  --muted: rgba(230, 210, 150, 0.45);
+  --border: rgba(212, 175, 55, 0.18);
+
+  --clock-font: "SEAWAVE";
+  --clock-weight: 520;
+  --clock-letter: 14px;
+  --clock-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 18px rgba(212, 175, 55, 0.15);
+}
+
+[data-theme="royal"] .clock {
+  font-family: var(--clock-font);
+  font-weight: var(--clock-weight);
+  letter-spacing: var(--clock-letter);
+  background: linear-gradient(90deg, #6f5320, #b8963a, #f0e0a0, #d4af37, #7a5a21);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--clock-shadow);
+  animation: royalGlow 18s linear infinite;
+}
+
+@keyframes royalGlow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+[data-theme="royal"] .quoteText {
+  color: rgba(230, 210, 150, 0.65);
+  font-style: italic;
+  letter-spacing: 0.4px;
+  text-shadow: 0 1px 6px rgba(212, 175, 55, 0.1);
+}
+
+[data-theme="royal"] .panel,
+[data-theme="royal"] .card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================================
+   THEME: NOBLE DARK (Vienna)
+   ========================================================= */
+
+[data-theme="noble"] {
+  --bg:
+    radial-gradient(1200px 700px at 50% 10%, rgba(0, 170, 150, 0.18), transparent 65%),
+    radial-gradient(1000px 700px at 80% 85%, rgba(0, 140, 130, 0.2), transparent 70%),
+    linear-gradient(180deg, #031617 0%, #021112 50%, #010a0b 100%);
+
+  --clock-color: #d7fffb;
+  --text: rgba(210, 255, 250, 0.92);
+  --muted: rgba(150, 230, 220, 0.38);
+  --border: rgba(0, 200, 180, 0.25);
+
+  --clock-font: "SpaceGrotesk", serif;
+  --clock-weight: 500;
+  --clock-letter: 12px;
+  --clock-shadow: 0 25px 80px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 180, 170, 0.18);
+}
+
+[data-theme="noble"] .clock::before {
+  content: "";
+  position: absolute;
+  inset: -90px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 210, 190, 0.28),
+    rgba(0, 160, 150, 0.16),
+    transparent 70%
+  );
+  filter: blur(90px);
+  opacity: 0.85;
+  z-index: -1;
+}
+
+[data-theme="noble"] .drawer {
+  background: rgba(4, 18, 22, 0.82) !important;
+  backdrop-filter: blur(50px) saturate(140%) !important;
+  border-left: 1px solid rgba(0, 200, 180, 0.28);
+  box-shadow:
+    -60px 0 120px rgba(0, 0, 0, 0.9),
+    inset 0 0 40px rgba(0, 180, 160, 0.08);
+}
+
+[data-theme="noble"] .divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 190, 0.55), transparent);
+}
+
+/* =========================================================
+   THEME: NOBLE LIGHT (Vienna Light)
+   ========================================================= */
+
+[data-theme="noble-light"] {
+  --bg:
+    radial-gradient(900px 600px at 20% 10%, rgba(0, 200, 180, 0.15), transparent 70%),
+    radial-gradient(900px 600px at 80% 90%, rgba(0, 170, 200, 0.14), transparent 70%),
+    linear-gradient(180deg, #f7fffd 0%, #edf9f7 50%, #e6f4f2 100%);
+
+  --clock-color: #0e6a70;
+  --text: rgba(10, 80, 85, 0.92);
+  --muted: rgba(0, 130, 140, 0.38);
+  --border: rgba(0, 170, 180, 0.2);
+
+  --clock-font: "SpaceGrotesk", serif;
+  --clock-weight: 500;
+  --clock-letter: 12px;
+  --clock-shadow: 0 18px 55px rgba(0, 150, 160, 0.18), 0 0 25px rgba(0, 200, 180, 0.12);
+}
+
+[data-theme="noble-light"] .clock::before {
+  content: "";
+  position: absolute;
+  inset: -80px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 200, 180, 0.28),
+    rgba(0, 160, 170, 0.14),
+    transparent 70%
+  );
+  filter: blur(75px);
+  opacity: 0.85;
+  z-index: -1;
+}
+
+[data-theme="noble-light"] .drawer {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(55px) saturate(140%) !important;
+  border-left: 1px solid rgba(0, 170, 180, 0.2);
+  box-shadow:
+    -40px 0 80px rgba(0, 150, 160, 0.15),
+    inset 0 0 25px rgba(0, 200, 180, 0.08);
+}
+
+[data-theme="noble-light"] .divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 180, 170, 0.45), transparent);
+}
+
+/* =========================================================
+   BASE STYLES
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ui-font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+body,
+.clock,
+.date,
+.quote,
+.search input,
+.search button,
+.corner,
+.drawer,
+.bmItem,
+.themeCard {
+  transition:
+    background 420ms ease,
+    background-color 420ms ease,
+    color 320ms ease,
+    border-color 320ms ease,
+    box-shadow 420ms ease,
+    text-shadow 420ms ease,
+    filter 420ms ease,
+    opacity 240ms ease,
+    transform 240ms ease;
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.stage {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 1;
+}
+
+.center {
+  width: min(760px, 92vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+/* =========================================================
+   CLOCK
+   ========================================================= */
+
+.clock {
+  font-family: var(--clock-font);
+  font-size: clamp(76px, 11vw, 160px);
+  line-height: 1;
+  letter-spacing: var(--clock-letter);
+  font-weight: var(--clock-weight);
+  color: var(--clock-color);
+  user-select: none;
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-shadow: var(--clock-shadow);
+  transform: translateY(-2px);
+  -webkit-text-stroke: 0.6px rgba(255, 255, 255, 0.14);
+  transition:
+    transform 260ms ease,
+    letter-spacing 260ms ease,
+    opacity 260ms ease;
+}
+
+.clock .colon {
+  display: inline-block;
+  margin: 0 2px;
+  opacity: 0.35;
+  transform: translateY(-2px);
+  animation: breath 2.6s ease-in-out infinite;
+}
+
+@keyframes breath {
+  0%,
+  100% {
+    opacity: 0.22;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   DATE / QUOTE
+   ========================================================= */
+
+.date {
+  margin-top: 4px;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+.quote {
+  max-width: 560px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 2;
+  opacity: 0.92;
+}
+
+.quoteAuthor {
+  margin-right: 6px;
+  opacity: 0.8;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search {
+  width: min(480px, 92vw);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.search input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: transparent;
+  outline: none;
+  font-family: var(--ui-font);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.search input::placeholder {
+  color: var(--muted);
+}
+
+.search button {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    opacity 120ms ease;
+}
+
+.search button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* =========================================================
+   SEARCH ENGINE SWITCH
+   ========================================================= */
+
+.engineSwitch {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.engineOption {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all 0.25s ease;
+}
+
+.engineOption:hover {
+  transform: translateY(-1px);
+}
+
+.engineOption.active {
+  color: var(--text);
+  border-color: var(--text);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+.engineIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* =========================================================
+   CORNER BUTTONS
+   ========================================================= */
+
+.corner {
+  position: absolute;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    opacity 120ms ease;
+}
+
+.corner:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.corner.left {
+  left: 18px;
+}
+
+.corner.right {
+  right: 18px;
+}
+
+/* =========================================================
+   SETTINGS BUTTON
+   ========================================================= */
+
+#settingsBtn {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  bottom: 18px;
+}
+
+#settingsBtn:hover {
+  transform: translateY(-3px);
+  color: var(--text);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
+}
+
+#settingsBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+#settingsBtn svg {
+  width: 22px;
+  height: 22px;
+}
+
+#settingsBtn:hover svg {
+  filter: brightness(1.5);
+}
+
+#settingsBtn:hover .icon-glass {
+  animation: gearSpin 3s linear infinite;
+  filter: drop-shadow(0 0 8px var(--accent, #bb86fc));
+}
+
+/* =========================================================
+   DRAWER
+   ========================================================= */
+
+.drawer {
+  position: absolute;
+  bottom: 76px;
+  width: min(460px, 92vw);
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 92%, white 8%);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.drawer.hidden {
+  display: none;
+}
+
+#settingsDrawer {
+  left: 18px;
+}
+
+.drawerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.drawerTitle {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.drawerClose {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+#settingsDrawer {
+  transform-origin: left bottom;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  backdrop-filter: blur(30px) brightness(0.8) !important;
+  -webkit-backdrop-filter: blur(30px) brightness(0.8) !important;
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 220ms ease,
+    filter 240ms ease;
+}
+
+#settingsDrawer.hidden {
+  display: block !important;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+/* =========================================================
+   THEME PICKER
+   ========================================================= */
+
+.setBlock {
+  padding: 6px 0 12px;
+}
+
+.setLabelBig {
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.themes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.themeCard {
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform 120ms ease;
+}
+
+.themeCard:hover {
+  transform: translateY(-1px);
+}
+
+.themeSwatch {
+  height: 42px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+}
+
+.themeName {
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.themeHint {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* =========================================================
+   SETTINGS ROWS
+   ========================================================= */
+
+.setRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 2px solid var(--border);
+}
+
+.setLabel {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.setBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.setBtns button {
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px 12px;
+  font-family: var(--ui-font);
+  font-size: 12px;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition:
+    transform 160ms ease,
+    opacity 160ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease;
+}
+
+.setBtns button:hover {
+  transform: translateY(-2px);
+  color: var(--text);
+  border-color: color-mix(in oklab, var(--text) 55%, var(--border));
+  background: color-mix(in oklab, var(--bg) 72%, white 10%);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+  opacity: 0.98;
+}
+
+.setBtns button:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.setBtns button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.22),
+    0 0 0 3px color-mix(in oklab, var(--text) 18%, transparent);
+}
+
+.setBtns button::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(220px 120px at 20% 20%, rgba(255, 255, 255, 0.18), transparent 55%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+  pointer-events: none;
+}
+
+.setBtns button:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.setBtns button.active {
+  border-color: var(--text);
+  color: var(--text);
+  background: color-mix(in oklab, var(--bg) 62%, white 12%);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.setInput {
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--ui-font);
+  font-size: 12px;
+  outline: none;
+  width: 150px;
+}
+
+.setInput::placeholder {
+  color: var(--muted);
+}
+
+/* =========================================================
+   WEATHER
+   ========================================================= */
+
+.weatherCorner {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 85%, white 6%);
+  backdrop-filter: blur(6px);
+  min-width: auto;
+}
+
+.weatherCity {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.weatherTemp {
+  font-family: var(--clock-font);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--clock-color);
+  direction: ltr;
+}
+
+/* =========================================================
+   MARKET / CRYPTO
+   ========================================================= */
+
+.marketCorner {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 85%, white 6%);
+  backdrop-filter: blur(6px);
+  min-width: 110px;
+}
+
+.marketRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  direction: ltr;
+}
+
+.marketName {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.marketPrice {
+  font-family: var(--clock-font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--clock-color);
+  direction: ltr;
+}
+
+/* =========================================================
+   THEME TOGGLE BUTTONS (Marker / Sage / Noble)
+   ========================================================= */
+
+#markerThemeToggle,
+#sageThemeToggle,
+#nobleThemeToggle {
+  position: absolute;
+  bottom: 18px;
+  left: 74px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+#markerThemeToggle:hover,
+#sageThemeToggle:hover,
+#nobleThemeToggle:hover {
+  transform: translateY(-3px);
+  color: var(--text);
+  background: color-mix(in oklab, var(--bg) 60%, white 10%);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
+}
+
+#markerThemeToggle:active,
+#sageThemeToggle:active,
+#nobleThemeToggle:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+#markerThemeToggle .ico,
+#sageThemeToggle .ico,
+#nobleThemeToggle .ico {
+  font-size: 18px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   FAB (Floating Action Button)
+   ========================================================= */
+
+.fab-container {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.fab {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+.main-fab {
+  z-index: 2;
+}
+
+.sub-buttons {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+  height: 56px;
+}
+
+.sub-fab {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 0.3s ease calc(var(--i) * 0.05s);
+}
+
+.fab-container.open .sub-fab {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(calc(var(--i) * -70px));
+}
+
+.fab-container.open .plus {
+  transform: rotate(45deg);
+}
+
+/* =========================================================
+   ICONS
+   ========================================================= */
+
+.icon-glass {
+  width: 14px;
+  height: 14px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  vertical-align: middle;
+}
+
+.icon-glass:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+@keyframes gearSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   UTILITY
+   ========================================================= */
+
+.hidden {
+  display: none !important;
+}
+
+.align-text {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+
+/* =========================================================
+   SUPPORT MODAL (Theme-independent)
+   ========================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.modal-overlay.hidden {
+  display: none !important;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-box {
+  width: min(420px, 90vw);
+  background: #14171c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 28px 24px;
+  position: relative;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+  animation: modalSlideUp 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.modal-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Wallet List */
+.wallet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.wallet-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s ease;
+}
+
+.wallet-item:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.wallet-icon {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.wallet-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.wallet-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.wallet-address {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "IBM Plex Mono", monospace;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.wallet-copy {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.wallet-copy:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.wallet-copy.copied {
+  color: #4ade80;
+  border-color: #4ade80;
+}
+
+.modal-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.modal-github:hover {
+  border-color: #fff;
+  transform: translateY(-1px);
+}
+
+
+
+/* =========================================================
+   MARKER THEME — FIX MARKET PRICES
+   ========================================================= */
+
+[data-theme="marker"] .marketPrice,
+[data-theme="marker_dark"] .marketPrice,
+[data-theme="marker"] .weatherTemp,
+[data-theme="marker_dark"] .weatherTemp {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 500;
+  letter-spacing: 0;
+  transform: none;
+}

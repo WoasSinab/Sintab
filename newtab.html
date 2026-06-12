@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SinTab</title>
+    <link rel="stylesheet" href="newtab.css" />
+  </head>
+
+  <body>
+    <main class="stage">
+      <!-- Weather Top Left -->
+      <div class="weatherCorner" id="weatherBox" aria-label="Weather">
+        <div class="weatherCity" id="weatherCity">—</div>
+        <div class="weatherTemp" id="weatherTemp">—</div>
+      </div>
+
+      <!-- Crypto Prices -->
+      <div class="marketCorner" id="marketBox" aria-label="Market">
+        <div class="marketRow align-text">
+          <span class="marketName">BTC</span>
+          <span class="marketPrice" id="btcPrice">—</span>
+        </div>
+        <div class="marketRow align-text">
+          <span class="marketName">ETH</span>
+          <span class="marketPrice" id="ethPrice">—</span>
+        </div>
+      </div>
+
+      <!-- FAB -->
+      <div class="fab-container">
+        <div class="sub-buttons">
+          <!-- Support -->
+          <div class="sub-fab" style="--i: 1">
+            <button class="fab" id="supportBtn" title="Support">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                     2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                     C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  fill="var(--text)"
+                  opacity="0.8"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- QR -->
+          <div class="sub-fab" style="--i: 2">
+            <a href="https://woassinab.github.io/QR-React/">
+              <button class="fab" id="qrBtn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="3" width="6" height="6" stroke="var(--text)" stroke-width="2" />
+                  <rect x="15" y="3" width="6" height="6" stroke="var(--text)" stroke-width="2" />
+                  <rect x="3" y="15" width="6" height="6" stroke="var(--text)" stroke-width="2" />
+                  <path d="M15 15H18V18H15V15Z" fill="var(--text)" />
+                  <path d="M18 18H21V21H18V18Z" fill="var(--text)" />
+                </svg>
+              </button>
+            </a>
+          </div>
+
+          <!-- GitHub -->
+          <div class="sub-fab" style="--i: 3">
+            <a href="https://github.com/WoasSinab" target="_blank" rel="noopener noreferrer">
+              <button class="fab" id="githubBtn">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--text)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  />
+                </svg>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <button class="fab main-fab" id="mainFab">
+          <span class="plus">
+            <svg
+              class="icon-glass"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5V19M5 12H19"
+                stroke="var(--text)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <!-- Center Content -->
+      <section class="center">
+        <div class="clock" id="clock">--:--</div>
+        <div class="date" id="jalaliDate">—</div>
+
+        <div class="quote" id="quoteWrap">
+          <span class="quoteText" id="quoteText">—</span>
+          <span class="quoteAuthor" id="quoteAuthor"></span>
+        </div>
+
+        <form class="search" id="searchForm">
+          <input id="searchInput" type="text" placeholder="Search ..." autocomplete="off" />
+          <div class="engineSwitch">
+            <div class="engineOption active" data-engine="google" aria-label="Google">
+              <svg class="engineIcon" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M21.35 11.1H12v2.8h5.37c-.23 1.3-1.6 3.82-5.37 3.82a6.25 6.25 0 1 1 0-12.5 5.6 5.6 0 0 1 3.96 1.55l2.7-2.6A9.93 9.93 0 0 0 12 2a10 10 0 1 0 0 20c5.77 0 9.6-4.05 9.6-9.77 0-.66-.08-1.16-.25-1.63Z"
+                />
+              </svg>
+            </div>
+            <div class="engineOption" data-engine="youtube" aria-label="YouTube">
+              <svg class="engineIcon" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.6 9.4.6 9.4.6s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.8 15.5v-7l6 3.5-6 3.5Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Settings Button -->
+      <button class="corner left" id="settingsBtn" title="Settings" aria-label="Settings">
+        <svg
+          class="icon-glass"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style="opacity: 0.5; backdrop-filter: blur(1px)"
+        >
+          <circle cx="12" cy="12" r="3" stroke="var(--text, #fff)" stroke-width="1.5" />
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+            stroke="var(--text, #fff)"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <!-- Settings Drawer -->
+      <section class="drawer hidden" id="settingsDrawer" aria-label="Settings drawer">
+        <div class="drawerHead">
+          <div class="drawerTitle">Settings</div>
+          <button class="drawerClose" id="closeSettings" type="button" aria-label="Close">×</button>
+        </div>
+
+        <div class="setBlock">
+          <div class="setLabelBig">Theme</div>
+          <div class="themes" id="themesGrid"></div>
+        </div>
+
+        <div class="setRow">
+          <div class="setLabel">Weather City</div>
+          <div class="setBtns">
+            <input id="weatherCityInput" class="setInput" type="text" placeholder="Berlin" />
+            <button id="weatherCitySave" type="button">Save</button>
+          </div>
+        </div>
+
+        <div class="setRow">
+          <div class="setLabel">Quote</div>
+          <div class="setBtns">
+            <button id="quoteOn" type="button">On</button>
+            <button id="quoteOff" type="button">Off</button>
+          </div>
+        </div>
+
+        <div class="setRow">
+          <div class="setLabel">Crypto Prices</div>
+          <div class="setBtns">
+            <button id="cryptoOn" type="button">On</button>
+            <button id="cryptoOff" type="button">Off</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Theme Toggles -->
+      <button class="hidden" id="markerThemeToggle" title="Marker Light/Dark" aria-label="Marker theme toggle">
+        <span class="ico">☾</span>
+      </button>
+      <button class="hidden" id="sageThemeToggle" title="Sage Light/Dark" aria-label="Sage theme toggle">
+        <span class="ico">☾</span>
+      </button>
+      <button class="hidden" id="nobleThemeToggle" title="Noble Light/Dark" aria-label="Noble theme toggle">
+        <span class="ico">☾</span>
+      </button>
+    </main>
+
+    <!-- Support Modal (خارج از main) -->
+    <div class="modal-overlay hidden" id="supportModal">
+      <div class="modal-box">
+        <button class="modal-close" id="closeSupportModal" aria-label="Close">×</button>
+        <div class="modal-title">Support SinTab</div>
+        <p class="modal-desc">If you enjoy SinTab, consider supporting its development.</p>
+
+        <div class="wallet-list">
+          <!-- ETH -->
+          <div class="wallet-item">
+            <span class="wallet-icon">⟠</span>
+            <div class="wallet-info">
+              <div class="wallet-label">Ethereum (ETH)</div>
+              <div class="wallet-address" id="ethWallet">0xD0330731bAe9B08300cad2cF33b7A44dE366f849</div>
+            </div>
+            <button class="wallet-copy" data-copy="ethWallet" title="Copy">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+            </button>
+          </div>
+
+<!-- TRON (TRX) -->
+<div class="wallet-item">
+  <span class="wallet-icon">🔺</span>
+  <div class="wallet-info">
+    <div class="wallet-label">TRON (TRX)</div>
+    <div class="wallet-address" id="trxWallet">TWVE1WzdQomKjFkL7HrtxdrMqdyfT7VByv</div>
+  </div>
+  <button class="wallet-copy" data-copy="trxWallet" title="Copy">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" />
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    </svg>
+  </button>
+</div>
+
+          <!-- TON -->
+          <div class="wallet-item">
+            <span class="wallet-icon" style="font-size: 16px;">◆</span>
+            <div class="wallet-info">
+              <div class="wallet-label">TON</div>
+              <div class="wallet-address" id="tonWallet">UQB_yIzgCAqi4nil73IsOQWNrxi7Gxy1Z0URY6819qubJbxX</div>
+            </div>
+            <button class="wallet-copy" data-copy="tonWallet" title="Copy">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="newtab.js"></script>
+  </body>
+</html>
