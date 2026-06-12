@@ -160,6 +160,6 @@ This project is licensed under the **Mozilla Public License 2.0** — see the [L
 
 <div align="center">
 
-Made with ❤️ for the Firefox community
+Made with ❤️
 
 </div>
